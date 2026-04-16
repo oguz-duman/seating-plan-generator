@@ -15,8 +15,13 @@ The original classroom layout is preserved.
 
 ### Installation
 ```bash
-pip install openpyxl
+git clone https://github.com/oguz-duman/seating-plan-generator
 ```
+
+```bash
+pip install -r requirements.txt
+```
+
 ```bash
 python main.py
 ```
