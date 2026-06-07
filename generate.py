@@ -170,7 +170,7 @@ def prepare_workbook(source_path: Path, class_names: List[str], exam_name: str, 
 
     for class_name in class_names:
         ws = wb[class_name]
-        ws["A1"] = f"{exam_name} - {class_name}"
+        ws["A1"] = f"{exam_name} | {class_name}"
 
     used_sheet_names = set(class_names)
 
@@ -351,8 +351,9 @@ def main() -> None:
         formatter=lambda student: f"{student.number}\n{student.name}",
     )
 
+    output_root_path = workbook_path.parent / "results"
     output_folder_name = sanitize_folder_name(exam_name)
-    output_folder_path = workbook_path.parent / output_folder_name
+    output_folder_path = output_root_path / output_folder_name
     prepare_output_folder(output_folder_path)           # ensures clean output directory
 
     output_numbers_path = output_folder_path / config.output_numbers_file
